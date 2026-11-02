@@ -30,7 +30,6 @@ Item {
     function refreshAll() {
         LaptopBattery.refresh();
         PowerSources.refresh();
-        PowerProfile.refresh();
     }
 
     Row {
