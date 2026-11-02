@@ -1,0 +1,40 @@
+[files]
+"hyprland/hyprland.lua"   = ".config/hypr/hyprland.lua"
+"hyprland/apps.lua"       = ".config/hypr/apps.lua"
+"hyprland/settings.lua"   = ".config/hypr/settings.lua"
+"hyprland/animations.lua" = ".config/hypr/animations.lua"
+"hyprland/env.lua"        = ".config/hypr/env.lua"
+"hyprland/binds.lua"      = ".config/hypr/binds.lua"
+"hyprland/rules.lua"      = ".config/hypr/rules.lua"
+"hyprland/autostart.lua"  = ".config/hypr/autostart.lua"
+"hyprland/monitors.lua"   = ".config/hypr/monitors.lua"
+"hyprland/json.lua"       = ".config/hypr/json.lua"
+"hyprlock/hyprlock.conf"  = ".config/hypr/hyprlock.conf"
+"monitor-conf.json"       = ".config/dotfiles/monitor-conf.json"
+
+"quickshell" = ".config/quickshell"
+"kitty"      = ".config/kitty"
+"yazi"       = ".config/yazi"
+
+"wallpapers" = ".local/share/dotfiles/wallpapers"
+
+"neovim/init.lua"            = ".config/nvim/init.lua"
+"neovim/lua"                 = ".config/nvim/lua"
+"neovim/nvim-pack-lock.json" = ".config/nvim/nvim-pack-lock.json"
+
+"fish/config.fish"       = ".config/fish/config.fish"
+"starship/starship.toml" = ".config/starship.toml"
+"git/config"             = ".config/git/config"
+
+"systemd/quickshell.service" = ".config/systemd/user/quickshell.service"
+
+# The folder the system gives SDDM, it can't read home
+"sddm"                                              = "/var/lib/dotfiles/sddm/profile"
+"wallpapers/horizontal/painting-moonlight-dresden.jpg" = "/var/lib/dotfiles/sddm/profile/background.jpg"
+
+"scripts/screenshot.sh"             = ".local/share/dotfiles/scripts/screenshot"
+"scripts/wallpaper.sh"              = ".local/share/dotfiles/scripts/wallpaper"
+"scripts/nari-essential-battery.py" = ".local/share/dotfiles/scripts/nari-essential-battery"
+
+[dconf]  # loaded with dconf load
+"dconf/settings.ini" = "/"

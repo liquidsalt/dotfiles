@@ -1,0 +1,10 @@
+# Started by hyprland.lua at login, PartOf stops it again at logout
+[Unit]
+Description=Quickshell
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/env quickshell
+Restart=on-failure
+RestartSec=3

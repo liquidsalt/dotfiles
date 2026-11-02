@@ -1,0 +1,54 @@
+# Vague palette (from vague.nvim), for reference
+# bg #141415   line #252530   visual #333738
+# fg #cdcdcd   comment #606079   border #878787
+# func #c48282   string #e8b589   number #e0a363
+# property #c3c3d5   constant #aeaed1   parameter #bb9dbd
+
+[flavor]
+dark  = "vague"
+light = "vague"
+
+# Flat look: no rounded caps, calmer permission colors
+[status]
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+perm_type  = { fg = "#878787" }  # d for directory, - for file
+perm_read  = { fg = "#c3c3d5" }  # r
+perm_write = { fg = "#c48282" }  # w
+perm_exec  = { fg = "#e0a363" }  # x
+perm_sep   = { fg = "#606079" }  # - when a permission is missing
+
+# Subtle hover: dark raised backgrounds, same flat style in all columns
+[indicator]
+current = { bg = "#333738", bold = true }
+parent  = { bg = "#252530" }
+preview = { bg = "#252530" }
+padding = { open = " ", close = " " }
+
+# Calm mode label and file info box
+[mode]
+normal_main = { fg = "#cdcdcd", bg = "#333738", bold = true }
+normal_alt  = { fg = "#cdcdcd", bg = "#252530" }
+select_main = { fg = "#e8b589", bg = "#333738", bold = true }
+select_alt  = { fg = "#cdcdcd", bg = "#252530" }
+unset_main  = { fg = "#c48282", bg = "#333738", bold = true }
+unset_alt   = { fg = "#cdcdcd", bg = "#252530" }
+
+# Neutral file names, color only where it means something
+[filetype]
+rules = [
+  { mime = "**/image/*", fg = "#e8b589" },
+  { mime = "**/{audio,video}/*", fg = "#bb9dbd" },
+  { url = "*", is = "orphan", fg = "#c48282" },
+  { url = "*", is = "exec", fg = "#e0a363" },
+  { url = "*/", fg = "#c3c3d5" },
+  { url = "*", fg = "#cdcdcd" },
+]
+
+# Folder icons that stay visible on the hovered row
+[icon]
+prepend_conds = [
+  { if = "dir & hovered", text = "\uf07c", fg = "#878787" },
+  { if = "dir", text = "\uf07b", fg = "#878787" },
+]

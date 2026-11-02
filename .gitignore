@@ -1,0 +1,18 @@
+# env
+*.env
+*.env.*
+!*.env.age
+# age keys, only key.age goes in the repo
+*.key
+secrets/*/key
+# ssh
+*.ssh
+*.ssh.*
+!*.ssh.age
+!*.ssh.pub
+# tools
+.ruff_cache/
+__pycache__/
+# notes
+TODO.md
+tmp/

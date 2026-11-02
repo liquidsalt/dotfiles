@@ -1,0 +1,7 @@
+[user]
+	name = liquidsalt
+	email = liquidsalt@azuresalt.app
+[init]
+	defaultBranch = master
+[url "ssh://git@"]
+	pushInsteadOf = https://

@@ -1,0 +1,36 @@
+{
+  "undocked": {
+    "builtin": {
+      "port": "eDP-1",
+      "index": 0,
+      "primary": true,
+      "max-resolution": "1920x1080",
+      "max-refresh-rate": 144,
+      "preferred-resolution": "1920x1080",
+      "preferred-refresh-rate": 144,
+      "preferred-rotation": 0
+    }
+  },
+  "docked": {
+    "main-external": {
+      "port": "HDMI-A-1",
+      "index": 1,
+      "primary": true,
+      "max-resolution": "3840x2160",
+      "max-refresh-rate": 144,
+      "preferred-resolution": "2560x1440",
+      "preferred-refresh-rate": 144,
+      "preferred-rotation": 3
+    },
+    "secondary-external": {
+      "port": "DP-1",
+      "index": 0,
+      "primary": false,
+      "max-resolution": "1920x1080",
+      "max-refresh-rate": 60,
+      "preferred-resolution": "1920x1080",
+      "preferred-refresh-rate": 60,
+      "preferred-rotation": 3
+    }
+  }
+}
