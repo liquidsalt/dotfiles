@@ -42,10 +42,22 @@ def print_help() -> None:
     print("  secrets refresh          decrypt again whatever changed with the keys already here")
 
 
+# A specialisation doesn't know its own name, only the generations holding it do, None on the base system
+def current_specialisation() -> str | None:
+    running = Path("/run/current-system").resolve()
+    for link in Path("/nix/var/nix/profiles").glob("system-*-link/specialisation/*"):
+        if link.resolve() == running:
+            return link.name
+    return None
+
+
 def nix_rebuild() -> None:
     host = socket.gethostname()
-    os.execvp("sudo", ["sudo", "nixos-rebuild", "switch", "--refresh",
-                       "--flake", f"git+{REPO}?shallow=1#{host}"])
+    cmd = ["sudo", "nixos-rebuild", "switch", "--refresh", "--flake", f"git+{REPO}?shallow=1#{host}"]
+    specialisation = current_specialisation()
+    if specialisation:
+        cmd += ["--specialisation", specialisation]
+    os.execvp("sudo", cmd)
 
 
 # No local copy, so the lock is updated in a throwaway clone and pushed from there
