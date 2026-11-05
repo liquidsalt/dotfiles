@@ -23,8 +23,7 @@
 
     "d /home/commander/projects 0700 commander users -"
     "d /home/commander/projects/dev 0700 commander users -"
-    "d /home/commander/projects/dev/templates 0700 commander users -"
-    "d /home/commander/projects/dev/ai-generated 0700 commander users -"
+    "d /home/commander/projects/devops 0700 commander users -"
     "d /home/commander/projects/art 0700 commander users -"
 
     "d /home/commander/.secrets 0700 commander users -"
