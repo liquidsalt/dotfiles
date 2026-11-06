@@ -5,6 +5,8 @@
 	defaultBranch = master
 [url "ssh://git@"]
 	pushInsteadOf = https://
+[url "https://codeberg.org/"]
+    pushInsteadOf = https://codeberg.org/
 [credential "https://codeberg.org"]
 	username = liquidsalt
 	helper = "!f() { test \"$1\" = get && echo \"password=$(cat $HOME/.secrets/codeberg)\"; }; f"
