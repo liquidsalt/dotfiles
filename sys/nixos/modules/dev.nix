@@ -18,9 +18,9 @@
     uv    # python
 
     # build tools
-    gnumake # general
-    cmake   # c/c++
-    xmake   # c/c++
+    gnumake        # general
+    cmake          # c/c++
+    unstable.xmake # c/c++
 
     # Language Servers
     clang-tools                  # c/c++
