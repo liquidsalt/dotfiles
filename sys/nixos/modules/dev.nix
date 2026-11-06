@@ -43,6 +43,7 @@
 
     # Tools
     gh
+    forgejo-cli  # fj, gh for codeberg
     tokei
     unstable.claude-code
   ];
