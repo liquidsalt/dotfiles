@@ -14,6 +14,7 @@
     unar
 
     age       # encryption tool
+    restic    # dotfiles backup runs on it
 
     # utilities
     fd

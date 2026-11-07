@@ -1,0 +1,16 @@
+# What gets backed up, relative to home
+paths = [
+  "documents",
+  "media/images",
+  "media/books",
+  "media/music",
+  "media/video",
+]
+
+# Each one is its own repository, the lowest priority is tried first when restoring
+[destinations.b2]
+repo         = "s3:https://s3.us-east-005.backblazeb2.com/backups-bunker/restic"
+env_file     = ".secrets/b2.env"  # credentials and RESTIC_PASSWORD, relative to home
+limit        = "9G"               # the first 10 GB are free
+max_download = "2x"               # free egress is 3x the month's average storage
+priority     = 1

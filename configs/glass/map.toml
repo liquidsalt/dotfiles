@@ -26,6 +26,9 @@
 "git/config"             = ".config/git/config"
 
 "systemd/quickshell.service" = ".config/systemd/user/quickshell.service"
+"systemd/dotfiles-backup.service" = ".config/systemd/user/dotfiles-backup.service"
+"systemd/dotfiles-backup.timer"   = ".config/systemd/user/dotfiles-backup.timer"
+"restic/backup.toml"              = ".config/dotfiles/backup.toml"
 
 # The folder the system gives SDDM, it can't read home
 "sddm"                                              = "/var/lib/dotfiles/sddm/profile"
@@ -37,3 +40,7 @@
 
 [dconf]  # loaded with dconf load
 "dconf/settings.ini" = "/"
+
+[merge]  # only these keys are set, the rest of the file stays the app's own
+"helium/preferences.json" = ".config/net.imput.helium/Default/Preferences"
+"vesktop/settings.json"   = ".config/vesktop/settings.json"

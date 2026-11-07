@@ -1,0 +1,406 @@
+{
+  "helium": {
+    "browser": {
+      "centered_location_bar": false,
+      "custom_accelerators": {
+        "33002": {
+          "added": [
+            "Alt+KeyR"
+          ]
+        },
+        "33003": {
+          "removed": [
+            "Alt+Home"
+          ]
+        },
+        "33007": {
+          "removed": [
+            "Control+Shift+KeyR",
+            "Shift+F5",
+            "Control+F5"
+          ]
+        },
+        "34000": {
+          "removed": [
+            "Control+KeyN"
+          ]
+        },
+        "34001": {
+          "removed": [
+            "Control+Shift+KeyN"
+          ]
+        },
+        "34012": {
+          "removed": [
+            "Control+Shift+KeyW",
+            "Alt+F4"
+          ]
+        },
+        "34014": {
+          "added": [
+            "Alt+KeyW"
+          ],
+          "removed": [
+            "Control+KeyT"
+          ]
+        },
+        "34015": {
+          "added": [
+            "Alt+KeyQ"
+          ],
+          "removed": [
+            "Control+KeyW",
+            "Control+F4"
+          ]
+        },
+        "34016": {
+          "removed": [
+            "Control+PageDown"
+          ]
+        },
+        "34017": {
+          "removed": [
+            "Control+PageUp"
+          ]
+        },
+        "34028": {
+          "added": [
+            "Alt+KeyZ"
+          ]
+        },
+        "34032": {
+          "added": [
+            "Alt+ArrowDown"
+          ],
+          "removed": [
+            "Control+Shift+PageDown"
+          ]
+        },
+        "34033": {
+          "added": [
+            "Alt+ArrowUp"
+          ],
+          "removed": [
+            "Control+Shift+PageUp"
+          ]
+        },
+        "34057": {
+          "removed": [
+            "Alt+Shift+KeyN"
+          ]
+        },
+        "34061": {
+          "added": [
+            "Alt+KeyC"
+          ]
+        },
+        "34062": {
+          "removed": [
+            "Control+Tab"
+          ]
+        },
+        "34063": {
+          "removed": [
+            "Control+Shift+Tab"
+          ]
+        },
+        "34090": {
+          "removed": [
+            "Control+KeyS"
+          ]
+        },
+        "34091": {
+          "removed": [
+            "Control+Shift+KeyL"
+          ]
+        },
+        "34100": {
+          "removed": [
+            "Alt+Shift+KeyC"
+          ]
+        },
+        "34101": {
+          "removed": [
+            "Alt+Shift+KeyP"
+          ]
+        },
+        "34102": {
+          "removed": [
+            "Alt+Shift+KeyX"
+          ]
+        },
+        "34103": {
+          "removed": [
+            "Alt+Shift+KeyZ"
+          ]
+        },
+        "34104": {
+          "removed": [
+            "Alt+Shift+KeyW"
+          ]
+        },
+        "35000": {
+          "removed": [
+            "Control+KeyD"
+          ]
+        },
+        "35001": {
+          "removed": [
+            "Control+Shift+KeyD"
+          ]
+        },
+        "35002": {
+          "removed": [
+            "Control+KeyU"
+          ]
+        },
+        "37001": {
+          "removed": [
+            "F3"
+          ]
+        },
+        "37002": {
+          "removed": [
+            "Shift+F3"
+          ]
+        },
+        "37003": {
+          "removed": [
+            "Escape"
+          ]
+        },
+        "39000": {
+          "removed": [
+            "Alt+Shift+KeyT"
+          ]
+        },
+        "39001": {
+          "added": [
+            "Alt+KeyA"
+          ],
+          "removed": [
+            "Alt+KeyD",
+            "Control+KeyL"
+          ]
+        },
+        "39002": {
+          "added": [
+            "Alt+KeyS"
+          ],
+          "removed": [
+            "Control+KeyE",
+            "Control+KeyK"
+          ]
+        },
+        "39003": {
+          "removed": [
+            "F10"
+          ]
+        },
+        "39004": {
+          "removed": [
+            "F6"
+          ]
+        },
+        "39005": {
+          "removed": [
+            "Shift+F6"
+          ]
+        },
+        "39006": {
+          "removed": [
+            "Alt+Shift+KeyB"
+          ]
+        },
+        "39007": {
+          "removed": [
+            "Alt+Shift+KeyA"
+          ]
+        },
+        "39009": {
+          "removed": [
+            "Control+F6"
+          ]
+        },
+        "40000": {
+          "removed": [
+            "Control+KeyO"
+          ]
+        },
+        "40004": {
+          "removed": [
+            "Control+Shift+KeyI"
+          ]
+        },
+        "40005": {
+          "removed": [
+            "Control+Shift+KeyJ"
+          ]
+        },
+        "40009": {
+          "removed": [
+            "Control+Shift+KeyB"
+          ]
+        },
+        "40010": {
+          "removed": [
+            "Control+KeyH"
+          ]
+        },
+        "40011": {
+          "removed": [
+            "Control+Shift+KeyO"
+          ]
+        },
+        "40012": {
+          "added": [
+            "Alt+KeyD"
+          ],
+          "removed": [
+            "Control+KeyJ"
+          ]
+        },
+        "40013": {
+          "removed": [
+            "Control+Shift+Delete"
+          ]
+        },
+        "40021": {
+          "removed": [
+            "Alt+KeyE",
+            "Alt+KeyF"
+          ]
+        },
+        "40023": {
+          "removed": [
+            "Control+Shift+KeyE"
+          ]
+        },
+        "40134": {
+          "removed": [
+            "Control+Shift+KeyM"
+          ]
+        },
+        "40237": {
+          "removed": [
+            "F12"
+          ]
+        },
+        "40260": {
+          "removed": [
+            "F7"
+          ]
+        },
+        "40286": {
+          "removed": [
+            "Shift+Escape"
+          ]
+        },
+        "40303": {
+          "removed": [
+            "Alt+Shift+KeyR"
+          ]
+        },
+        "52500": {
+          "removed": [
+            "Control+Shift+KeyA"
+          ]
+        }
+      },
+      "layout": 2,
+      "shift_right_click_context_menu": true,
+      "show_avatar_button": false,
+      "show_media_button": false,
+      "show_menu_button": true,
+      "show_progress_bar": true,
+      "show_vertical_tabs_collapse_button": false,
+      "zen_mode": false
+    },
+    "settings": {
+      "behavior": {
+        "vertical_collapse_shortcut": false
+      }
+    },
+    "services": {
+      "schema_version": 1,
+      "user_consented": true
+    },
+    "completed_onboarding": true
+  },
+  "vertical_tabs": {
+    "collapsed_state": true,
+    "uncollapsed_width": 200
+  },
+  "browser": {
+    "theme": {
+      "is_grayscale2": true
+    },
+    "show_home_button": false,
+    "custom_chrome_frame": false,
+    "split_view_drag_and_drop_enabled": false,
+    "enable_spellchecking": true
+  },
+  "bookmark_bar": {
+    "show_on_all_tabs": false,
+    "show_tab_groups": false,
+    "visibility_state": 2
+  },
+  "session": {
+    "restore_on_startup": 1
+  },
+  "spellcheck": {
+    "dictionaries": [
+      "en"
+    ],
+    "use_spelling_service": false
+  },
+  "intl": {
+    "accept_languages": "en",
+    "selected_languages": "en"
+  },
+  "extensions": {
+    "commands": {
+      "linux:Alt+Shift+D": {
+        "command_name": "toggle",
+        "extension": "eimadpbcbfnmbkopoojfekhnkhdbieeh",
+        "global": false
+      },
+      "linux:Ctrl+Shift+9": {
+        "command_name": "generate_password",
+        "extension": "nngceckbapebfimnlniiiahkandclblb",
+        "global": false
+      },
+      "linux:Ctrl+Shift+U": {
+        "command_name": "_execute_action",
+        "extension": "nngceckbapebfimnlniiiahkandclblb",
+        "global": false
+      }
+    }
+  },
+  "default_search_provider_data": {
+    "template_url_data": {
+      "alternate_urls": [],
+      "created_from_play_api": false,
+      "doodle_url": "",
+      "favicon_url": "https://cdn.search.brave.com/serp/v3/_app/immutable/assets/favicon.CVXAaejQ.svg",
+      "image_url": "",
+      "image_url_post_params": "",
+      "input_encodings": [
+        "UTF-8"
+      ],
+      "is_active": 0,
+      "keyword": "search.brave.com",
+      "logo_url": "",
+      "new_tab_url": "",
+      "policy_origin": 0,
+      "prepopulate_id": 109,
+      "safe_for_autoreplace": true,
+      "search_url_post_params": "",
+      "short_name": "Brave Search",
+      "starter_pack_id": 0,
+      "suggestions_url": "https://search.brave.com/api/suggest?q={searchTerms}",
+      "suggestions_url_post_params": "",
+      "url": "https://search.brave.com/search?q={searchTerms}"
+    }
+  }
+}

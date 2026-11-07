@@ -1,0 +1,6 @@
+[Unit]
+Description=Backups
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/dotfiles backup run

@@ -1,0 +1,11 @@
+# Started by autostart.lua at login, Persistent catches up on days the laptop was off
+[Unit]
+Description=Daily backups
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=1h
+
+[Install]
+WantedBy=timers.target

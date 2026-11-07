@@ -78,6 +78,13 @@ tailscale_login() {
     tailscale --socket="$tmp/tailscaled.sock" up --hostname="$HOST"
 }
 
+# Any destination that's up will do, the date is left blank to start empty
+restore_backup() {
+    nixos-enter --root /mnt -c "su - commander -c '~/.local/bin/dotfiles backup list'" || return 1
+    read -rp "Date to restore, empty for none: " date
+    [ -z "$date" ] || nixos-enter --root /mnt -c "su - commander -c '~/.local/bin/dotfiles backup restore $date \~'"
+}
+
 heading "Disk encryption password, asked at every boot"
 (umask 077; ask_password "Disk password" > "$DISK_PASSWORD")
 
@@ -103,6 +110,9 @@ step "Profile" "git clone --depth 1 $REPO /tmp/dotfiles && python3 /tmp/dotfiles
 heading "Secrets, asks the age keys' passphrase, shown as you type"
 step "Secrets" "dotfiles secrets apply $HOST" \
     nixos-enter --root /mnt -c "su - commander -c '~/.local/bin/dotfiles secrets apply $HOST'"
+
+heading "Backups"
+step "Restore" "dotfiles backup list, then dotfiles backup restore <date> ~" restore_backup
 
 heading "Tailscale login for $HOST, open the link on another device"
 step "Tailscale" "sudo tailscale up --hostname=$HOST" tailscale_login
