@@ -39,6 +39,10 @@
     hunspellDicts.fr-moderne
   ];
 
+  # Helium only installs extensions from a root policy, the applied profile puts its own in this folder
+  systemd.tmpfiles.rules = [ "d /var/lib/dotfiles/helium-policy 0755 commander users -" ];
+  environment.etc."chromium/policies/managed".source = "/var/lib/dotfiles/helium-policy";
+
   # Gaming
   programs.gamemode.enable  = true;
   programs.gamescope.enable = true;

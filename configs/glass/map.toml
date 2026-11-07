@@ -34,6 +34,9 @@
 "sddm"                                              = "/var/lib/dotfiles/sddm/profile"
 "wallpapers/horizontal/painting-moonlight-dresden.jpg" = "/var/lib/dotfiles/sddm/profile/background.jpg"
 
+# The folder the system gives Helium's policy, extensions only install from there
+"helium/policy.json" = "/var/lib/dotfiles/helium-policy/extensions.json"
+
 "scripts/screenshot.sh"             = ".local/share/dotfiles/scripts/screenshot"
 "scripts/wallpaper.sh"              = ".local/share/dotfiles/scripts/wallpaper"
 "scripts/nari-essential-battery.py" = ".local/share/dotfiles/scripts/nari-essential-battery"
