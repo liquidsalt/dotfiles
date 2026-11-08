@@ -57,4 +57,7 @@ systemd-run --user --scope --quiet --unit="$unit" -p TasksMax=8192 \
         xhost +SI:localuser:player > /dev/null || exit 1
         /run/wrappers/bin/sudo -n -u player "$0" "$1" "$DISPLAY" "${@:2}" &
         wait $!
-    ' "$play_inner" "$dir" "$@"
+    ' "$play_inner" "$dir" "$@" &
+
+# In the background so a kill or ctrl+c reaches the trap right away instead of after gamescope
+wait $!
