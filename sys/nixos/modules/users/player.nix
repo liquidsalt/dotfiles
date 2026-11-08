@@ -3,13 +3,13 @@
 let
   play-inner = pkgs.writeShellApplication {
     name          = "play-inner";
-    runtimeInputs = with pkgs; [ bubblewrap pulseaudio coreutils ];
+    runtimeInputs = with pkgs; [ bubblewrap pulseaudio coreutils dbus ];
     text          = builtins.readFile ./play-inner.sh;
   };
 
   play = pkgs.writeShellApplication {
     name          = "play";
-    runtimeInputs = with pkgs; [ pipewire coreutils gnused jq ];  # gamescope comes from programs.gamescope, hyprctl from the session
+    runtimeInputs = with pkgs; [ pipewire coreutils gnused jq xhost systemd ];  # gamescope comes from programs.gamescope, hyprctl from the session
     text          = "play_inner=${play-inner}/bin/play-inner\n" + builtins.readFile ./play.sh;
   };
 in

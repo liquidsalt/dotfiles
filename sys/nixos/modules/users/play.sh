@@ -4,12 +4,17 @@
 [ $# -gt 0 ] || { echo "usage: play <command> [args...]" >&2; exit 2; }
 
 dir="$(mktemp -d /run/play/XXXXXX)"
+unit="play-$(basename "$dir")"
 tunnel=""
+# commander can't signal player's processes, but can empty the scope they run in, so nothing the game started outlives it
 cleanup() {
     [ -z "$tunnel" ] || kill "$tunnel" 2>/dev/null || true
+    group="$(systemctl --user show -P ControlGroup "$unit.scope" 2>/dev/null || true)"
+    [ -z "$group" ] || echo 1 > "/sys/fs/cgroup$group/cgroup.kill" 2>/dev/null || true
     rm -rf "$dir"
 }
 trap cleanup EXIT
+trap "exit 130" INT TERM HUP  # so closing the terminal still runs cleanup
 chmod 2770 "$dir"
 
 # The game's sound comes out of this pipe and plays here like any other app, nothing goes the other way
@@ -41,7 +46,15 @@ fi
 # Steam runs as gamescope expects it to, in its controller interface
 [ "$(basename "$1")" != steam ] || size+=(-e)
 
+# Its own scope, capped so a game that forks without end only fills that and not commander's session
+# gamescope's X server only lets commander in, player is let in on this one display only
+# gamescope can't signal player's processes, so its child empties the scope when the window closes or the game ends, nothing is left to wait for
 # sudo resets the environment, so the game's display goes in as an argument
 # shellcheck disable=SC2016  # $DISPLAY is gamescope's, so it expands inside it
-gamescope "${gpu[@]}" "${size[@]}" -- bash -c 'exec /run/wrappers/bin/sudo -n -u player "$0" "$1" "$DISPLAY" "${@:2}"' \
-    "$play_inner" "$dir" "$@"
+systemd-run --user --scope --quiet --unit="$unit" -p TasksMax=8192 \
+    gamescope "${gpu[@]}" "${size[@]}" -- bash -c '
+        trap "echo 1 > /sys/fs/cgroup$(cut -d: -f3 /proc/self/cgroup)/cgroup.kill" EXIT TERM INT HUP
+        xhost +SI:localuser:player > /dev/null || exit 1
+        /run/wrappers/bin/sudo -n -u player "$0" "$1" "$DISPLAY" "${@:2}" &
+        wait $!
+    ' "$play_inner" "$dir" "$@"

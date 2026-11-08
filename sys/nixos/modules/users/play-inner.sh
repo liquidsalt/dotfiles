@@ -7,8 +7,14 @@ number="${display#:}"
 number="${number%%.*}"
 
 # A private /tmp holding only the game's own display, so commander's X server in /tmp/.X11-unix is out of reach
+# That display is X11 only, SDL looks for Wayland first and gives up
+# Its own PID namespace and /proc, so the game can't see commander's processes and nothing it started outlives it
+# A session bus of its own for the game and its sound server, without one some games start dbus-launch over and over
 # shellcheck disable=SC2016  # the inner script expands inside the sandbox
 exec bwrap --dev-bind / / \
+    --unshare-pid \
+    --proc /proc \
+    --die-with-parent \
     --tmpfs /tmp \
     --dir /tmp/.X11-unix \
     --bind "/tmp/.X11-unix/X$number" "/tmp/.X11-unix/X$number" \
@@ -19,11 +25,12 @@ exec bwrap --dev-bind / / \
     --setenv USER player \
     --setenv LOGNAME player \
     --setenv DISPLAY "$display" \
+    --setenv SDL_VIDEODRIVER x11 \
     --setenv XDG_RUNTIME_DIR /tmp/runtime \
     --setenv PULSE_RUNTIME_PATH /tmp/runtime/pulse \
     --setenv PULSE_SERVER unix:/tmp/runtime/pulse/native \
     --chdir /home/player \
-    -- bash -c '
+    -- dbus-run-session -- bash -c '
         # Its own sound server, whose only output is the pipe back to commander
         pulseaudio -n --daemonize=no --exit-idle-time=-1 --use-pid-file=no \
             -L "module-native-protocol-unix" \
