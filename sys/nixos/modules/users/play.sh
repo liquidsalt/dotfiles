@@ -44,13 +44,14 @@ if monitor="$(hyprctl monitors -j 2>/dev/null | jq -er '.[] | select(.focused) |
 fi
 
 # Always composited, a game buffer passed straight through to Hyprland only gets redrawn around the cursor
+# Its SDL window instead of the Wayland one, which left Elden Ring frozen once the focus went to another monitor
 # Its own scope, capped so a game that forks without end only fills that and not commander's session
 # gamescope's X server only lets commander in, player is let in on this one display only
 # gamescope can't signal player's processes, so its child empties the scope when the window closes or the game ends, nothing is left to wait for
 # sudo resets the environment, so the game's display goes in as an argument
 # shellcheck disable=SC2016  # $DISPLAY is gamescope's, so it expands inside it
 systemd-run --user --scope --quiet --unit="$unit" -p TasksMax=8192 \
-    gamescope --force-composition "${gpu[@]}" "${size[@]}" -- bash -c '
+    gamescope --backend sdl --force-composition "${gpu[@]}" "${size[@]}" -- bash -c '
         trap "echo 1 > /sys/fs/cgroup$(cut -d: -f3 /proc/self/cgroup)/cgroup.kill" EXIT TERM INT HUP
         xhost +SI:localuser:player > /dev/null || exit 1
         /run/wrappers/bin/sudo -n -u player "$0" "$1" "$DISPLAY" "${@:2}" &
