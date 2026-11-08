@@ -10,8 +10,8 @@ return {
   notesApp      = "obsidian",
   discord       = "vesktop",
   musicPlayer   = "spotify",
-  gameLauncher  = "heroic",
-  steamLauncher = "steam",
+  gameLauncher  = "play heroic",
+  steamLauncher = "play steam -gamepadui",
 
   appLauncher      = "qs ipc call launcher toggle",
   powerMenu        = "qs ipc call powerMenu toggle",

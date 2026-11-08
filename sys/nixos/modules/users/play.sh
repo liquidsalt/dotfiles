@@ -31,7 +31,17 @@ if [ -n "$first" ] && [ -e "$first" ]; then
     gpu=(--prefer-vk-device "$(sed 's/^0x//' "$device/vendor"):$(sed 's/^0x//' "$device/device")")
 fi
 
+# Rendered at the focused monitor's size and rate, so a tiled or floating window only scales it and fullscreen is native
+size=()
+if monitor="$(hyprctl monitors -j 2>/dev/null | jq -er '.[] | select(.focused) | "\(.width) \(.height) \(.refreshRate | round)"')"; then
+    read -r width height rate <<< "$monitor"
+    size=(-W "$width" -H "$height" -w "$width" -h "$height" -r "$rate")
+fi
+
+# Steam runs as gamescope expects it to, in its controller interface
+[ "$(basename "$1")" != steam ] || size+=(-e)
+
 # sudo resets the environment, so the game's display goes in as an argument
 # shellcheck disable=SC2016  # $DISPLAY is gamescope's, so it expands inside it
-gamescope "${gpu[@]}" -- bash -c 'exec /run/wrappers/bin/sudo -n -u player "$0" "$1" "$DISPLAY" "${@:2}"' \
+gamescope "${gpu[@]}" "${size[@]}" -- bash -c 'exec /run/wrappers/bin/sudo -n -u player "$0" "$1" "$DISPLAY" "${@:2}"' \
     "$play_inner" "$dir" "$@"

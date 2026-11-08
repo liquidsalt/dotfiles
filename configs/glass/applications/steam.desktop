@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Steam
+Comment=Steam as player, inside play
+Exec=play steam -gamepadui %U
+Icon=steam
+Terminal=false
+Type=Application
+Categories=Game;
+MimeType=x-scheme-handler/steam;x-scheme-handler/steamlink;

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Heroic Games Launcher
+Comment=Epic, GOG, Amazon and DRM free games as player, inside play
+Exec=play heroic %u
+Icon=com.heroicgameslauncher.hgl
+Terminal=false
+Type=Application
+Categories=Game;
+MimeType=x-scheme-handler/heroic;

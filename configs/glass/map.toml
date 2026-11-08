@@ -18,6 +18,9 @@
 
 "wallpapers" = ".local/share/dotfiles/wallpapers"
 
+# Games launch as player inside play, these replace the system entries of the same name
+"applications" = ".local/share/applications"
+
 "neovim/init.lua"            = ".config/nvim/init.lua"
 "neovim/lua"                 = ".config/nvim/lua"
 

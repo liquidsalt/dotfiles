@@ -9,7 +9,7 @@ let
 
   play = pkgs.writeShellApplication {
     name          = "play";
-    runtimeInputs = with pkgs; [ pipewire coreutils gnused ];  # gamescope comes from programs.gamescope
+    runtimeInputs = with pkgs; [ pipewire coreutils gnused jq ];  # gamescope comes from programs.gamescope, hyprctl from the session
     text          = "play_inner=${play-inner}/bin/play-inner\n" + builtins.readFile ./play.sh;
   };
 in
@@ -35,6 +35,13 @@ in
 
   environment.systemPackages = [ play ];
 
+  # Gamepads reach games through the play group, keyboards and uinput never do or player could read or type into commander's session
+  services.udev.extraRules = ''
+    SUBSYSTEM=="input", ENV{ID_INPUT_JOYSTICK}=="1", GROUP="play", MODE="0660"
+    KERNEL=="hidraw*", ATTRS{idVendor}=="28de|054c|057e|045e", GROUP="play", MODE="0660"
+    KERNEL=="hidraw*", KERNELS=="*:28DE:*|*:054C:*|*:057E:*|*:045E:*", GROUP="play", MODE="0660"
+  '';
+
   # setgid, so whatever commander drops in stays in play
   systemd.tmpfiles.rules = [
     "d /home/player/downloads 2770 player play -"
@@ -43,6 +50,7 @@ in
     "d /home/player/games/pc 2770 player play -"
     "d /home/player/games/ps4 2770 player play -"
     "d /home/player/games/switch 2770 player play -"
+    "d /home/player/games/wiiu 2770 player play -"
 
     # One folder per running game, for its audio pipe
     "d /run/play 2770 commander play -"

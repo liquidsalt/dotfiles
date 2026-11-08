@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=shadPS4
+Comment=PS4 emulator as player, inside play
+Exec=play shadps4
+Terminal=false
+Type=Application
+Categories=Game;Emulator;
