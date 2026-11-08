@@ -26,6 +26,7 @@ hl.bind(apps.mod .. " + CTRL + J", hl.dsp.window.resize({ x =   0, y =  40, rela
 
 hl.bind(apps.mod .. " + Backspace", hl.dsp.window.close())
 hl.bind(apps.mod .. " + T",         hl.dsp.window.float({ action = "toggle" }))
+hl.bind(apps.mod .. " + SHIFT + minus", hl.dsp.window.fullscreen({ action = "toggle" }))  -- win + _
 
 hl.bind(apps.mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(apps.mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
