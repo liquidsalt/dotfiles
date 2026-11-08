@@ -82,6 +82,12 @@ function M.apply()
   end
 end
 
+-- X11 games open on the primary screen, Xwayland may not be up yet at startup so it's retried for a while
+function M.setPrimary()
+  if not M.primary then return end
+  hl.exec_cmd("for _ in $(seq 60); do xrandr --output " .. M.primary .. " --primary 2>/dev/null && break; sleep 1; done")
+end
+
 -- Five per output by index, 0 gets 1-5, 1 gets 6-10
 function M.workspaces()
   for _, m in ipairs(M.layout()) do
@@ -97,6 +103,7 @@ local function save(port, change)
   for k, v in pairs(change) do state[port][k] = v end
   writeState(state)
   M.apply()
+  M.setPrimary()
 end
 
 function M.flip(port)
