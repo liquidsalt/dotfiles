@@ -5,6 +5,7 @@
 
     kitty          # terminal emulator
     nautilus       # file manager
+    varia          # download manager
     loupe          # image viewer
     drawing        # test image viewer
     celluloid      # video viewer
