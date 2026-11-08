@@ -11,7 +11,7 @@ return {
   discord       = "vesktop",
   musicPlayer   = "spotify",
   gameLauncher  = "play heroic",
-  steamLauncher = "play steam -gamepadui",
+  steamLauncher = "play steam",
 
   appLauncher      = "qs ipc call launcher toggle",
   powerMenu        = "qs ipc call powerMenu toggle",

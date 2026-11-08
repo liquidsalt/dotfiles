@@ -43,9 +43,6 @@ if monitor="$(hyprctl monitors -j 2>/dev/null | jq -er '.[] | select(.focused) |
     size=(-W "$width" -H "$height" -w "$width" -h "$height" -r "$rate")
 fi
 
-# Steam runs as gamescope expects it to, in its controller interface
-[ "$(basename "$1")" != steam ] || size+=(-e)
-
 # Its own scope, capped so a game that forks without end only fills that and not commander's session
 # gamescope's X server only lets commander in, player is let in on this one display only
 # gamescope can't signal player's processes, so its child empties the scope when the window closes or the game ends, nothing is left to wait for
