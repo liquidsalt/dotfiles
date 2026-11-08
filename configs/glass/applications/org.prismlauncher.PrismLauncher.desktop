@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Prism Launcher
-Comment=Minecraft as player, inside play
-Exec=play prismlauncher %U
-Icon=org.prismlauncher.PrismLauncher
-Terminal=false
-Type=Application
-Categories=Game;
-MimeType=application/x-modrinth-modpack+zip;x-scheme-handler/curseforge;x-scheme-handler/prismlauncher;
