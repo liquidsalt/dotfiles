@@ -204,6 +204,9 @@ def deep_merge(base: dict, extra: dict) -> None:
     for key, value in extra.items():
         if isinstance(value, dict) and isinstance(base.get(key), dict):
             deep_merge(base[key], value)
+        elif isinstance(value, str) and value.startswith("~/"):
+            # Apps want full paths, the repo writes them from home so the profile works for any user
+            base[key] = str(HOME / value[2:])
         else:
             base[key] = value
 

@@ -47,3 +47,4 @@
 [merge]  # only these keys are set, the rest of the file stays the app's own
 "helium/preferences.json" = ".config/net.imput.helium/Default/Preferences"
 "vesktop/settings.json"   = ".config/vesktop/settings.json"
+"heroic/config.json"      = ".config/heroic/config.json"  # games and prefixes out of ~/Games
