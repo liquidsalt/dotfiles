@@ -33,7 +33,7 @@
 
     prismlauncher  # minecraft launcher
 
-    # Emulators, games go in /home/player/games
+    # Emulators
     ryubing          # switch
     cemu             # wii u
     unstable.shadps4 # ps4, newer than stable for bloodborne

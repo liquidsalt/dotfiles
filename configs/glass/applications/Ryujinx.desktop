@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Ryujinx
-Comment=Switch emulator as player, inside play
-Exec=play Ryujinx.sh %f
-Icon=Ryujinx
-Terminal=false
-Type=Application
-Categories=Game;Emulator;

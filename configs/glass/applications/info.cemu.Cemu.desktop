@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Cemu
-Comment=Wii U emulator as player, inside play
-Exec=play cemu
-Icon=info.cemu.Cemu
-Terminal=false
-Type=Application
-Categories=Game;Emulator;
