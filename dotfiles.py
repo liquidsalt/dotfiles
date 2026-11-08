@@ -394,7 +394,7 @@ def to_bytes(size: str) -> int:
     return int(float(size[:-1]) * units[size[-1].upper()])
 
 
-def stored(dest: dict, *snapshot: str) -> int:
+def repo_size(dest: dict, *snapshot: str) -> int:
     return json.loads(must(restic(dest, "stats", *snapshot, "--mode", "raw-data", "--json")))["total_size"]
 
 
@@ -403,7 +403,7 @@ def download_left(dest: dict, entry: dict) -> int | None:
     limit = dest.get("max_download")
     if limit is None:
         return None
-    allowed = float(limit[:-1]) * stored(dest) if limit.endswith("x") else to_bytes(limit)
+    allowed = float(limit[:-1]) * repo_size(dest) if limit.endswith("x") else to_bytes(limit)
     return max(int(allowed) - entry.get("downloaded", {}).get(time.strftime("%Y-%m"), 0), 0)
 
 
@@ -421,7 +421,7 @@ def prune_args(dest: dict, entry: dict) -> list[str]:
 
 # Oldest first until it fits, deduplication means a snapshot only frees what no other one uses
 def trim(dest: dict, limit: int, entry: dict) -> None:
-    while stored(dest) > limit:
+    while repo_size(dest) > limit:
         snapshots = json.loads(must(restic(dest, "snapshots", "--json")))
         if len(snapshots) <= 1:
             raise RuntimeError(f"one snapshot alone is over the limit of {dest['limit']}")
@@ -505,7 +505,7 @@ def backup_restore(date: str, folder: str | None, over_limit: bool) -> None:
     state = load_state(BACKUP_STATE)
     for name, dest, snapshot in days[date]:
         entry = state.setdefault(name, {})
-        size = stored(dest, snapshot)
+        size = repo_size(dest, snapshot)
         left = download_left(dest, entry)
         if left is not None and size > left and not over_limit:
             print(f"{name}: this needs {size} bytes and only {left} are left of its download limit this month", file=sys.stderr)
