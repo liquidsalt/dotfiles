@@ -48,3 +48,4 @@
 "helium/preferences.json" = ".config/net.imput.helium/Default/Preferences"
 "vesktop/settings.json"   = ".config/vesktop/settings.json"
 "heroic/config.json"      = ".config/heroic/config.json"  # games and prefixes out of ~/Games
+"heroic/store.json"       = ".config/heroic/store/config.json"

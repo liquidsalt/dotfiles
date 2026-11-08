@@ -2,6 +2,10 @@
   "defaultSettings": {
     "defaultInstallPath": "~/.local/share/heroic/games",
     "defaultWinePrefix": "~/.local/share/heroic/prefixes",
-    "winePrefix": "~/.local/share/heroic/prefixes/shared"
+    "winePrefix": "~/.local/share/heroic/prefixes/shared",
+    "checkForUpdatesOnStartup": false,
+    "autoUpdateGames": true,
+    "exitToTray": true,
+    "minimizeOnLaunch": true
   }
 }
