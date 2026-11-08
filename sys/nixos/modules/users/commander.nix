@@ -20,6 +20,7 @@
     "d /home/commander/media/images 0700 commander users -"
     "d /home/commander/media/video 0700 commander users -"
     "d /home/commander/media/music 0700 commander users -"
+    "d /home/commander/media/games 0700 commander users -"
 
     "d /home/commander/projects 0700 commander users -"
     "d /home/commander/projects/dev 0700 commander users -"
