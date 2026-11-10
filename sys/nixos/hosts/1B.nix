@@ -3,6 +3,7 @@
   imports = [
     ../modules/nix.nix
     ../modules/boot.nix
+    ../modules/boot-1B.nix
 
     ../modules/hardware/1B.nix
     ../modules/connectivity/1B.nix
