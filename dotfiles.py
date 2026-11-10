@@ -61,11 +61,20 @@ def current_specialisation() -> str | None:
 
 def nix_rebuild() -> None:
     host = socket.gethostname()
-    cmd = ["sudo", "nixos-rebuild", "switch", "--refresh", "--flake", f"git+{REPO}?shallow=1#{host}"]
+    flake = ["--refresh", "--flake", f"git+{REPO}?shallow=1#{host}"]
     specialisation = current_specialisation()
-    if specialisation:
-        cmd += ["--specialisation", specialisation]
-    os.execvp("sudo", cmd)
+    if not specialisation:
+        os.execvp("sudo", ["sudo", "nixos-rebuild", "switch", *flake])
+
+    # The boot menu is written from the base system so it lists it and every specialisation,
+    # then the running system moves into the new generation's copy of the one it was in, without touching the menu again
+    subprocess.run(["sudo", "nixos-rebuild", "boot", *flake], check=True)
+    system = Path("/nix/var/nix/profiles/system")
+    target = system / "specialisation" / specialisation
+    if not target.exists():
+        print(f"{specialisation} is gone from the new generation, switching to the base system")
+        target = system
+    os.execvp("sudo", ["sudo", str(target / "bin" / "switch-to-configuration"), "test"])
 
 
 # No local copy, so the lock is updated in a throwaway clone and pushed from there
