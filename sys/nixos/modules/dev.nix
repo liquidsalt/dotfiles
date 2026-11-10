@@ -43,7 +43,6 @@
     godot
 
     # Tools
-    gh
     tokei
     unstable.claude-code
   ];
