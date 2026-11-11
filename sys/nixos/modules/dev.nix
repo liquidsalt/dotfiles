@@ -32,6 +32,5 @@
 
     # Tools
     tokei
-    unstable.claude-code
   ];
 }
