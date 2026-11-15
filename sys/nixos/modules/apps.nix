@@ -49,6 +49,13 @@
   systemd.tmpfiles.rules = [ "d /var/lib/dotfiles/helium-policy 0755 commander users -" ];
   environment.etc."chromium/policies/managed".source = "/var/lib/dotfiles/helium-policy";
 
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "org.vinegarhq.Sober"
+    ];
+  };
+
   # Gaming
   programs.gamemode.enable  = true;
   programs.gamescope.enable = true;
