@@ -3,10 +3,10 @@
   environment.systemPackages = with pkgs; [
     # Compilers/Interpreters
     clang   # c/c++
+    zig     # zig
     rustc   # rust
     python3 # python
     jdk     # java
-    go      # go
 
     # Build Tools
     unstable.xmake # c/c++
@@ -15,6 +15,7 @@
 
     # Language Servers
     clang-tools                  # c/c++
+    zls                          # zig
     rust-analyzer                # rust
     basedpyright ruff            # python
     jdt-language-server          # java

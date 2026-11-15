@@ -4,21 +4,15 @@ vim.pack.add({
 
 vim.lsp.enable({
   'clangd',
+  'zls',
   'rust_analyzer',
-  'basedpyright',
-  'ruff',
+  'basedpyright', 'ruff',
   'jdtls',
   'gopls',
   'lua_ls',
   'nixd',
   'bashls',
-  'fish_lsp',
   'qmlls',
-  'hyprls',
-  'marksman',
-  'taplo',
-  'yamlls',
-  'jsonls',
 })
 
 -- Lua lsp extra settings
