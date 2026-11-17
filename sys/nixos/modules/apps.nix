@@ -33,12 +33,12 @@
 
     (pkgs.prismlauncher.override { # minecraft launcher
       additionalLibs = with pkgs; [
-        xorg.libXtst
-        xorg.libXi
-        xorg.libXt
-        xorg.libX11
-        xorg.libXext
-        xorg.libXrender
+        libx11
+        libxtst
+        libxt
+        libxinerama
+        libxcb
+        libxkbcommon
       ];
     })
     libXtst        # needed for mcsr
