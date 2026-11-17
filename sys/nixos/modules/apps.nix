@@ -31,7 +31,16 @@
       ];
     })
 
-    prismlauncher  # minecraft launcher
+    (pkgs.prismlauncher.override { # minecraft launcher
+      additionalLibs = with pkgs; [
+        xorg.libXtst
+        xorg.libXi
+        xorg.libXt
+        xorg.libX11
+        xorg.libXext
+        xorg.libXrender
+      ];
+    })
     libXtst        # needed for mcsr
 
     # Emulators
