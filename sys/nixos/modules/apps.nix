@@ -32,11 +32,12 @@
     })
 
     prismlauncher  # minecraft launcher
+    libXtst        # needed for mcsr
 
     # Emulators
     ryubing          # switch
     cemu             # wii u
-    unstable.shadps4 # ps4, newer than stable for bloodborne
+    unstable.shadps4 # ps4
 
     # Office Suite
     libreoffice
