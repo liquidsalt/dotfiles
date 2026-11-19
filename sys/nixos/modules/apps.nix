@@ -53,6 +53,9 @@
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
+
+    # Temporary
+    chezmoi
   ];
 
   # Helium only installs extensions from a root policy, the applied profile puts its own in this folder
